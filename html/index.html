@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miral</title>
+  <script src="../assets/js/jquery-3.7.1.min.js"></script>
+  <script src="../assets/js/swiper.min.js"></script>
+  <link rel="stylesheet" href="../assets/css/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../assets/css/index.min.css">
+</head>
+
+<body>
+  <!-- S: Header -->
+  <div w3-include-html="./_include/header.html"></div>
+  <!-- E: Header -->
+
+  <div id="container">
+    <!-- S:Slider -->
+    <div class="slider">
+      <!-- Swiper -->
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" style="background-color: red;">Slide 1</div>
+          <div class="swiper-slide" style="background-color: gold;">Slide 2</div>
+          <div class="swiper-slide" style="background-color: green;">Slide 3</div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+      </div>
+    </div>
+    <!-- E:Slider -->
+
+    <div class="main wrap">
+      <!--후원 캠페인 -->
+      <div class="main-sec-1 campaign">
+        <h3></h3>
+        <p></p>
+        <div class="list">
+          <div>
+          </div>
+        </div>
+      </div>
+      <!-- 어울림으로 하나되는 세상 -->
+      <div class=" bg-grey"></div>
+    </div>
+
+
+
+
+  </div>
+
+  <!-- S:Footer -->
+  <div w3-include-html="./_include/footer.html"></div>
+  <!-- E:Footer -->
+
+  <script src="../assets/js/ui.js"></script>
+  <script src="../assets/js/common.js"></script>
+  <!-- w3c include HTML JS 실제 개발에서는 사용하지 않으므로 개발에서는 삭제필요.-->
+  <script src="../assets/js/w3.js"></script>
+  <script>
+    (function () {
+      w3IncludeHTML();
+      function myPlugin({ swiper, extendParams, on }) {
+        extendParams({
+          debugger: false,
+        });
+
+        on('init', () => {
+          if (!swiper.params.debugger) return;
+          console.log('init');
+        });
+        on('click', (swiper, e) => {
+          if (!swiper.params.debugger) return;
+          console.log('click');
+        });
+        on('tap', (swiper, e) => {
+          if (!swiper.params.debugger) return;
+          console.log('tap');
+        });
+        on('doubleTap', (swiper, e) => {
+          if (!swiper.params.debugger) return;
+          console.log('doubleTap');
+        });
+        on('sliderMove', (swiper, e) => {
+          if (!swiper.params.debugger) return;
+          console.log('sliderMove');
+        });
+        on('slideChange', () => {
+          if (!swiper.params.debugger) return;
+          console.log(
+            'slideChange',
+            swiper.previousIndex,
+            '->',
+            swiper.activeIndex
+          );
+        });
+        on('slideChangeTransitionStart', () => {
+          if (!swiper.params.debugger) return;
+          console.log('slideChangeTransitionStart');
+        });
+        on('slideChangeTransitionEnd', () => {
+          if (!swiper.params.debugger) return;
+          console.log('slideChangeTransitionEnd');
+        });
+        on('transitionStart', () => {
+          if (!swiper.params.debugger) return;
+          console.log('transitionStart');
+        });
+        on('transitionEnd', () => {
+          if (!swiper.params.debugger) return;
+          console.log('transitionEnd');
+        });
+        on('fromEdge', () => {
+          if (!swiper.params.debugger) return;
+          console.log('fromEdge');
+        });
+        on('reachBeginning', () => {
+          if (!swiper.params.debugger) return;
+          console.log('reachBeginning');
+        });
+        on('reachEnd', () => {
+          if (!swiper.params.debugger) return;
+          console.log('reachEnd');
+        });
+      }
+      // Init Swiper
+      var swiper = new Swiper('.swiper', {
+        // Install Plugin To Swiper
+        modules: [myPlugin],
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        // Enable debugger
+        debugger: true,
+      });
+
+    })();
+
+
+
+  </script>
+</body>
+
+</html>

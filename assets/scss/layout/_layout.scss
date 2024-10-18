@@ -1,0 +1,17 @@
+//class에 '-wrap' 포함된, 묶는 요소들 너비1180px에 가운데 정렬 
+[class*='-wrap']:not([class*='swiper']) {
+  margin: 0 auto;
+  width: 118rem;
+}
+
+
+
+.sec-main {
+  .title {
+    margin-bottom: 1.7rem;
+    font: 100;
+  }
+  .sub-title {
+    margin-bottom: 3.7rem;
+  }
+}
